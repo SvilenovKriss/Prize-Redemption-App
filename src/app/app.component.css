@@ -1,0 +1,28 @@
+.auth-sidenav-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.auth-sidenav {
+  width: 20%;
+  padding: 0 8px;
+  background-color: var(--color-red);
+}
+
+.auth-content { padding: 10px; }
+
+.loading {
+  color: var(--color-white);
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .auth-sidenav { width: 40%; }
+}
+
+@media only screen and (max-width: 400px) {
+  .auth-sidenav { width: 100%; }
+}

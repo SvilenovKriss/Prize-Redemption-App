@@ -1,0 +1,27 @@
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.example-form {
+  width: 100%;
+  min-width: 150px;
+  max-width: 500px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+form {
+  width: 250px;
+  margin: 0 auto;
+}
+
+mat-stroked-button {
+  text-align: center;
+}

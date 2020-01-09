@@ -1,0 +1,24 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  width: 100%;
+  font-size: 14px;
+}
+
+td,
+th {
+  width: 25%;
+}
+
+.username {
+  color: var(--color-black);
+}
+
+::ng-deep .mat-focused .mat-form-field-label,
+::ng-deep.mat-form-field-underline,
+::ng-deep.mat-form-field-ripple {
+  /*change color of label*/
+  color: var(--color-black-form-field) !important;
+}

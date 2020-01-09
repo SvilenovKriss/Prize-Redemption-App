@@ -1,0 +1,21 @@
+<form [formGroup]="this.editGroup" (ngSubmit)="this.edit()">
+  <div class="form-group">
+    <label for="username">Username:</label>
+    <input id="username" formControlName="username" type="email" class="form-control" placeholder="Write your name..." />
+    <div *ngIf="this.editGroup.get('username').errors">
+      <div class="alert alert-danger">Username must be at least 4-20 characters long.</div>
+    </div>
+    <label class="password-label" for="password">Password:</label>
+    <input id="password" formControlName="password" type="password" class="form-control" placeholder="Write your password..." />
+    <div *ngIf="this.editGroup.get('password').errors">
+      <div class="alert alert-danger">Password must have minimum eight characters, at least one letter, one number and
+        one special character.</div>
+    </div>
+  </div>
+  <button
+    mat-stroked-button color="warn"
+    [disabled]="this.editGroup.invalid || this.editGroup.value.email ==='' && this.editGroup.value.username === '' && this.editGroup.value.password ===''"
+    >
+    Edit
+  </button>
+</form>

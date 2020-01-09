@@ -1,0 +1,20 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="Barcode">
+      <th mat-header-cell *matHeaderCellDef> Barcode </th>
+      <td mat-cell class="redemption-code" *matCellDef="let element"> {{element.__redemptionCode__}}</td>
+    </ng-container>
+    <ng-container matColumnDef="Outlet">
+      <th mat-header-cell *matHeaderCellDef> Outlet </th>
+      <td mat-cell class="outlet-name" *matCellDef="let element"> {{element.__outlet__}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Time">
+      <th mat-header-cell *matHeaderCellDef> Time </th>
+      <td mat-cell class="date-of-record" *matCellDef="let element"> {{element.timeStamp | date: 'dd/MM/yyyy, hh:mm:ss'}}
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

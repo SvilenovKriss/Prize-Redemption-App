@@ -1,0 +1,50 @@
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="Create User">
+    <ng-template matTabContent>
+      <mat-accordion class="example-headers-align">
+        <div class="backgroundPadding">
+          <app-create-user
+          [usernames]="this.allUsernames"
+          [emails]="this.allEmails"
+          [outlets]="this.outlets"
+          (user)="this.createUser($event)"
+          >
+        </app-create-user>
+        </div>
+      </mat-accordion>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Create Outlet">
+    <ng-template matTabContent>
+      <mat-accordion class="example-headers-align">
+        <div class="backgroundPadding">
+          <app-create-outlet [customers]="this.customers" (outlet)="this.createOutlet($event)">
+          </app-create-outlet>
+        </div>
+      </mat-accordion>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Create Customer">
+    <ng-template matTabContent>
+      <mat-accordion class="example-headers-align">
+        <div class="backgroundPadding">
+          <app-create-customer (customer)="this.createCustomer($event)"></app-create-customer>
+        </div>
+      </mat-accordion>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Delete">
+    <ng-template matTabContent>
+      <mat-accordion class="example-headers-align">
+        <mat-expansion-panel [expanded]="true">
+          <app-delete
+              [outlets]="this.outlets"
+              [customers]="this.customers"
+              (delete)="this.deleteStore($event)"
+          >
+          </app-delete>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

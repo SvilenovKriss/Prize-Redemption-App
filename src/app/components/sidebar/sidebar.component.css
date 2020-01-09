@@ -1,0 +1,46 @@
+.logo {
+  padding: 20px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.logo img {
+  width: 100%;
+}
+
+.auth-sidenav-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #eee;
+}
+
+.auth-sidenav {
+  width: 20%;
+  padding: 0 8px;
+  background-color: #E41E2B;
+}
+
+.auth-list-item {
+  display: block;
+  margin: 10px 0;
+  padding: 8px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  line-height: 20px;
+  transition: all .3s;
+  border-radius: 10px;
+}
+
+a {
+  color: #E41E2B;
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  color: #E41E2B;
+  background-color: #fff;
+}

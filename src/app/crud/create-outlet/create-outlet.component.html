@@ -1,0 +1,24 @@
+<form [formGroup]="this.editGroup">
+  <div class="form-group">
+    <label for="outlet">Outlet:</label>
+    <input #outletName formControlName="outlet" class="form-control" type="outlet" id="outlet" placeholder="Outlet name..." />
+  </div>
+  <div class="form-group" #outletID>
+    <label for="exampleFormControlSelect1">Select customer:</label>
+    <div>
+      <select #customer class="form-control">
+        <option *ngFor="let customer of this.customers">
+          <p>{{customer.name}}</p>
+        </option>
+      </select>
+    </div>
+  </div>
+</form>
+<button
+  ng-disabled="!outletName.value"
+  mat-stroked-button color="warn"
+  [disabled]="this.editGroup.invalid || !this.editGroup.get('outlet').value"
+  (click)="this.createOutlet(outletName.value, customer.value)"
+  type="submit">
+  Create Оutlet
+</button>

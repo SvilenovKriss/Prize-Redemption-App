@@ -1,0 +1,15 @@
+input.ng-invalid .ng-untouched {
+  border-left: 5px solid red;
+}
+
+input.ng-valid .ng-touched {
+  border-left: 5px solid green;
+}
+
+.form-group {
+  margin-top: 10px;
+}
+
+.password-label {
+  margin-top: 5px;
+}

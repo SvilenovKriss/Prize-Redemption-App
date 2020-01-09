@@ -1,0 +1,54 @@
+<form class="example-form" [formGroup]="this.editGroup" (ngSubmit)="this.createUser(outletSelector.value)">
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input formControlName="email" id="email" type="email" class="form-control" placeholder="name@example.com" />
+    <div *ngIf="this.editGroup.get('email').errors">
+      <div class="alert alert-danger">Email address is invalid!</div>
+    </div>
+    <div *ngIf="this.emails.includes(this.editGroup.value.email)">
+      <div class="alert alert-danger">Email already exists!</div>
+    </div>
+    <label for="username">Username:</label>
+    <input
+      #username
+      formControlName="username"
+      id="username"
+      type="username"
+      class="form-control"
+      placeholder="Write your name..."
+    />
+    <div *ngIf="this.usernames.includes(this.editGroup.value.username)">
+      <div class="alert alert-danger">Username already exists!</div>
+    </div>
+    <div *ngIf="this.editGroup.get('username').errors">
+      <div class="alert alert-danger">Username must be at least 6-20 characters long.</div>
+    </div>
+    <label for="password">Password:</label>
+    <input
+      formControlName="password"
+      id="password"
+      type="password"
+      class="form-control"
+      placeholder="Write your password..."
+    />
+    <div *ngIf="this.editGroup.get('password').errors">
+      <div class="alert alert-danger">
+        Password must have minimum eight characters, at least one letter, one number and
+        one special character.
+      </div>
+    </div>
+  </div>
+  <mat-form-field class="example-form">
+    <mat-select #outletSelector placeholder="Select outlet:">
+      <ng-container *ngFor="let outlet of outlets">
+        <mat-option value="{{outlet.id}}">{{outlet.name}}</mat-option>
+      </ng-container>
+    </mat-select>
+  </mat-form-field>
+  <button
+    mat-stroked-button color="warn"
+    [disabled]="this.editGroup.invalid || !this.editGroup.value.email || !this.editGroup.value.username
+    || !this.editGroup.value.password || !outletSelector.value">
+    Submit
+  </button>
+</form>

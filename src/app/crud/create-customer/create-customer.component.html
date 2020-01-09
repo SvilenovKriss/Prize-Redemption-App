@@ -1,0 +1,13 @@
+<form (ngSubmit)="this.createCustomer(customerName.value); customerName.value =''" [formGroup]="this.editGroup">
+  <div class="form-group">
+    <label for="customer-name">Customer:</label>
+    <input formControlName="customer" #customerName class="form-control" id="customer-name" placeholder="Customer name..." />
+  </div>
+  <button
+    mat-stroked-button
+    [disabled]="this.editGroup.invalid || !this.editGroup.get('customer').value"
+    color="warn"
+    type="submit">
+    Create customer
+  </button>
+</form>

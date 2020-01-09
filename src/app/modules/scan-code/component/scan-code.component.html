@@ -1,0 +1,26 @@
+<div>
+  <br />
+  <zxing-scanner class="video-window" (scanSuccess)="onCodeResult($event)" [formats]="formatsEnabled"></zxing-scanner>
+  <form [formGroup]='redemptionCodeForm'
+    (ngSubmit)="submitCode(redemptionCodeForm.controls.codeField.value); redemptionCodeForm.reset()"
+    class="center"
+  >
+    <mat-form-field>
+      <input matInput formControlName="codeField" type="text" [pattern]="'^[a-zA-Z0-9]+$'" />
+    </mat-form-field>
+    <button type="submit" mat-raised-button [disabled]="redemptionCodeForm.invalid">
+      Submit&nbsp;<mat-icon>send</mat-icon>
+    </button>
+    <div
+      *ngIf="redemptionCodeForm.controls.codeField.dirty && redemptionCodeForm.controls.codeField.invalid && !!redemptionCodeForm.controls.codeField.errors"
+      class="invalid-input">The code must be alphanumeric.</div>
+  </form>
+  <div class="item-message" *ngIf="showScanningForPrizeItem">
+    <mat-divider></mat-divider>
+    <div class="item-message">
+      <mat-icon>error_outline</mat-icon>Please submit the item prize code now.
+    </div>
+    <mat-divider></mat-divider>
+  </div>
+  <div class="image"></div>
+</div>

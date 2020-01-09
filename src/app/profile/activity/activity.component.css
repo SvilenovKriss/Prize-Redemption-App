@@ -1,0 +1,17 @@
+table {
+  width: 100%;
+}
+
+.mat-elevation-z8 {
+  box-shadow: none !important;
+}
+
+@media only screen and (max-width: 520px) {
+  .redemption-code,
+  .outlet-name,
+  .date-of-record {
+    padding-right: 8px !important;
+    padding-left: 8px !important;
+    font-size: 10px;
+  }
+}

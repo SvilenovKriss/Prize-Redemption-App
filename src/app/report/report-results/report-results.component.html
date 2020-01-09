@@ -1,0 +1,42 @@
+<div>
+  <table 
+    mat-table 
+    [dataSource]="this.dataSource" 
+    multiTemplateDataRows
+    class="mat-elevation-z8" 
+    *ngIf="showTable" 
+    matSort
+  >
+    <ng-container matColumnDef="timeStamp">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Made on</th>
+      <td class="made-on" mat-cell *matCellDef="let element">{{element.timeStamp | date:"dd/MM/yyyy, hh:mm:ss"}}</td>
+    </ng-container>
+    <ng-container matColumnDef="redemptionCode">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Redemption Code</th>
+      <td class="redemption-code" mat-cell *matCellDef="let element"> {{element.redemptionCode}} </td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+      <td class="status" mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+    <ng-container matColumnDef="user">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>User</th>
+      <td class="user" mat-cell *matCellDef="let element"> {{element.username}} </td>
+    </ng-container>
+    <ng-container matColumnDef="outlet">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Outlet</th>
+      <td class="outlet" mat-cell *matCellDef="let element"> {{element.outlet}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let element; columns: columnsToDisplay;">
+    </tr>
+  </table>
+  <mat-paginator [hidden]="!this.showTable" [pageSizeOptions]="[7]" showFirstLastButtons></mat-paginator>
+</div>
+<div class="noResults" *ngIf="!showTable">
+  <mat-divider></mat-divider>
+  <div class="noResults">
+    <mat-icon>error_outline</mat-icon>No results have been found for this search
+  </div>
+  <mat-divider></mat-divider>
+</div>

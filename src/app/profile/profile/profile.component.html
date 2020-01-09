@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="card" [ngClass]="getThemeAccentClass()">
+        <div class="card-body">
+          <div class="card-title mb-4">
+            <div class="d-flex justify-content-start">
+              <div *ngIf="this.picture" class="image-container">
+                <img [src]="this.picture" id="img-profile" class="img-thumbnail" alt="user-picture" />
+                <div class="middle">
+                  <input type="file" (change)="changeProfilePic($event)" class="btnChangePicture" value="Change"
+                    accept="image/*" *ngIf="this.storage.get('id') === this.id" />
+                </div>
+              </div>
+              <div class="userData ml-3">
+                <ul class="list-info">
+                  <li>
+                    <label>Username:</label>
+                    <p>{{this.username}}</p>
+                  </li>
+                  <li>
+                    <label>Email:</label>
+                    <p>{{this.email}}</p>
+                  </li>
+                  <li>
+                    <label>Created On:</label>
+                    <p>{{this.createdOn | date:"dd/MM/yyyy, hh:mm:ss"}}</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="ml-auto" *ngIf="this.role === 'Admin' && this.storage.get('id')!== this.id">
+                <button type="button" class="btn btn-raised btn-danger" (click)="this.deleteUser()">Delete user</button>
+              </div>
+            </div>
+          </div>
+          <ngb-tabset #t="ngbTabset">
+            <ngb-tab id="tab-selectbyid1" title="My records">
+              <ng-template ngbTabContent>
+                <ul class="list-info">
+                  <app-activity [activity]="this.activity"></app-activity>
+                </ul>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab id="tab-selectbyid2" title="Outlet activity">
+              <ng-template ngbTabContent>
+                <app-outlet-activity [outletActivity]="this.outletActivity"></app-outlet-activity>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab id="tab-selectbyid3" title="Edit user" *ngIf="this.role === 'Admin'">
+              <ng-template ngbTabContent>
+                <app-edit (editUser)="this.editUser($event)"></app-edit>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab id="tab-selectbyid4" title="Change user outlet" *ngIf="this.role === 'Admin'">
+              <ng-template ngbTabContent>
+                <app-change-outlet [myOutletName]="this.outletName" [outlets]="this.allOutlets"
+                  (outletName)="updateUserOutlet($event)">
+                </app-change-outlet>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

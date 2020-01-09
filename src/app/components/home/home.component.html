@@ -1,0 +1,4 @@
+<div class="image welcome-info">
+  <button mat-stroked-button color="accent" class="home-button" [routerLink]="['/scan']"
+    *ngIf="this.storage.get('id')">Scan your code</button>
+</div>

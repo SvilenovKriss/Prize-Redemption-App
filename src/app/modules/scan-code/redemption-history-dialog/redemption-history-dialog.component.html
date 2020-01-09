@@ -1,0 +1,40 @@
+<div>
+  <div class="content-container">
+    <mat-icon id="close-icon" (click)="closeDialog()">close</mat-icon>
+    <span class="content-span full-width">
+      This redemption code has already been redeemed! Please view the redemption history bellow:
+    </span>
+  </div>
+  <table 
+    mat-table 
+    #codeRedemptionHistoryTable 
+    [dataSource]="this.dataSource" 
+    multiTemplateDataRows
+    class="mat-elevation-z8" 
+    matSort
+  >
+    <ng-container matColumnDef="timeStamp">
+      <th mat-header-cell *matHeaderCellDef>Made on</th>
+      <td mat-cell *matCellDef="let element">{{element.timeStamp | date:"dd/MM/yyyy, hh:mm:ss"}}</td>
+    </ng-container>
+    <ng-container matColumnDef="outletName">
+      <th mat-header-cell *matHeaderCellDef>Outlet</th>
+      <td mat-cell *matCellDef="let element">{{element.__outlet__.name}}</td>
+    </ng-container>
+    <ng-container matColumnDef="customerName">
+      <th mat-header-cell *matHeaderCellDef>Customer</th>
+      <td mat-cell *matCellDef="let element">{{element.__customer__.name}}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row [ngClass]="this.getRedeemedOrDeclinedClass(element.status)"
+      *matRowDef="let element; columns: columnsToDisplay;">
+    </tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[3]" showFirstLastButtons></mat-paginator>
+  <div class="content-container">
+    <span class="content-span full-width">Based on the declined entries would you like to report this redemption
+      code?</span>
+  </div>
+  <button mat-flat-button id="no-button" [mat-dialog-close]="false">No</button>
+  <button mat-flat-button id="yes-button" [mat-dialog-close]="true">Yes</button>
+</div>

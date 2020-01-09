@@ -1,0 +1,16 @@
+<form [formGroup]="this.editGroup" (ngSubmit)="this.sendEmail()">
+  <div class="example-container" class="help-desk-form" [ngClass]="getThemeAccentClass()">
+    <mat-form-field class="help-desk">
+      <input formControlName="subject" matInput placeholder="Subject" />
+    </mat-form-field>
+    <mat-error *ngIf="this.editGroup.get('subject').errors"> Subject must be 8 to 25 characters long. </mat-error>
+    <mat-form-field class="help-desk">
+      <textarea matInput maxlength="100" cols="30" rows="2" placeholder="Describe your problem..."></textarea>
+    </mat-form-field>
+    <mat-error *ngIf="this.editGroup.get('description').errors"> Description must be 15-100 characters long.
+    </mat-error>
+    <button mat-stroked-button color="warn"
+      [disabled]="this.editGroup.invalid || this.editGroup.value.description ==='' || this.editGroup.value.subject ===''">Submit</button>
+  </div>
+</form>
+<script src="https://smtpjs.com/v2/smtp.js"></script>

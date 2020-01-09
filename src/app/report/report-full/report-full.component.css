@@ -1,0 +1,27 @@
+.formDiv {
+  float: left;
+  width: 25%;
+  margin-right: 10px;
+}
+
+.tableDiv {
+  display: inline-block;
+  width: 74%;
+  height: 100%;
+}
+
+.dashboardsDiv {
+  display: flow-root;
+  width: 100%;
+  min-height: 250px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .formDiv {
+    width: 100%;
+  }
+
+  .tableDiv {
+    width: 100%;
+  }
+}

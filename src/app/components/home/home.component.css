@@ -1,0 +1,29 @@
+.image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  min-width: 100%;
+  min-height: 100%;
+  background-image: url('/assets/img/Coca-Cola-Big.png');
+  background-repeat: no-repeat;
+  background-color: var(--color-white);
+  background-size: contain;
+  background-position: center center;
+}
+
+.mat-stroked-button {
+  position: absolute;
+  top: 80%;
+  left: 49%;
+  width: 35%;
+  color: var(--color-white);
+  background: var(--color-red);
+  transform: translateX(-50%);
+}
+
+@media only screen and (max-width: 700px) {
+  .mat-stroked-button {
+    top: 60%;
+  }
+}

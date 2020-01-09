@@ -1,0 +1,11 @@
+<mat-nav-list>
+    <div class="logo"><img src="../../../assets/img/coca-cola.png" alt="coca-cola" /></div>
+    <a mat-list-item class="auth-list-item" (click)="sidenav.close()" [routerLink]="['/home']" data-toggle="collapse">Home</a>
+    <a mat-list-item class="auth-list-item" (click)="sidenav.close()" [routerLink]="['/profile/',this.myID]">Profile</a>
+    <a mat-list-item class="auth-list-item" (click)="sidenav.close()" [routerLink]="['/scan']">Scan code</a>
+    <div *ngIf="this.role === 'Admin'">
+        <a mat-list-item class="auth-list-item" (click)="sidenav.close()" *ngIf="showAdminRoutes()" [routerLink]="['/report']">Report</a>
+        <a mat-list-item class="auth-list-item" (click)="sidenav.close()" *ngIf="showAdminRoutes()" [routerLink]="['/create']">Create</a>
+        <a mat-list-item class="auth-list-item" (click)="sidenav.close()" [routerLink]="['/search']">Search</a>
+    </div>
+</mat-nav-list>

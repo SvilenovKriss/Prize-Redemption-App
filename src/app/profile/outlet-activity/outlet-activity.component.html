@@ -1,0 +1,23 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="Username">
+      <th mat-header-cell class="container-username" *matHeaderCellDef> Username </th>
+      <td mat-cell class="username" *matCellDef="let element"> {{element.__user__}}</td>
+    </ng-container>
+    <ng-container matColumnDef="Barcode">
+      <th mat-header-cell class="barcode-header" *matHeaderCellDef> Barcode </th>
+      <td mat-cell class="barcode" *matCellDef="let element"> {{element.__redemptionCode__}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell class="status-header" *matHeaderCellDef> Status </th>
+      <td mat-cell class="status" *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Outlet">
+      <th mat-header-cell *matHeaderCellDef> Outlet </th>
+      <td mat-cell class="outlet" *matCellDef="let element"> {{element.__outlet__}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

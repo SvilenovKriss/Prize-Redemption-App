@@ -1,0 +1,12 @@
+<div>
+  <div class="tableDiv">
+    <app-report-results [records]="this.reportResults"></app-report-results>
+  </div>
+  <div class="formDiv">
+    <app-report-form (reportRequest)="getReport($event)" [outlets]="this.outlets" [customers]="this.customers">
+    </app-report-form>
+  </div>
+  <div class="dashboardsDiv">
+    <app-report-dashboards [records]="this.reportResults"></app-report-dashboards>
+  </div>
+</div>

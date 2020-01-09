@@ -1,0 +1,15 @@
+<mat-sidenav-container class="auth-sidenav-container">
+  <mat-sidenav #sidenav class="auth-sidenav">
+    <app-sidebar [sidenav]="sidenav"></app-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-navbar [loggedIn]="isLogged" (toggle)="sidenav.toggle()" (logout)="logout()" (otherTheme)="changeTheme()">
+    </app-navbar>
+    <div class="auth-content">
+      <router-outlet></router-outlet>
+      <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#f68f6f" type="pacman">
+        <p class="loading">Loading...</p>
+      </ngx-spinner>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

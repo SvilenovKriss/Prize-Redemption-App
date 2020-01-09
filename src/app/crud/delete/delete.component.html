@@ -1,0 +1,38 @@
+<div class="parent">
+  <mat-form-field class="example-form">
+    <mat-select #customerSelector placeholder="customer name">
+      <mat-option>None</mat-option>
+      <ng-container *ngFor="let customer of customers">
+        <mat-option value="{{customer.id}}">{{customer.name}}</mat-option>
+      </ng-container>
+    </mat-select>
+  </mat-form-field>
+  <br />
+  <mat-form-field class="example-form">
+    <mat-select #outletSelector placeholder="outlet name">
+      <mat-option>None</mat-option>
+      <ng-container *ngFor="let outlet of outlets">
+        <mat-option value="{{outlet.id}}">{{outlet.name}}</mat-option>
+      </ng-container>
+    </mat-select>
+  </mat-form-field>
+  <br />
+  <button 
+    mat-stroked-button
+    *ngIf="!outletSelector.value || !customerSelector.value"
+    color="warn"
+    class="delete-button"
+    [disabled]="!outletSelector.value && !customerSelector.value"
+    (click)="this.deleteCustomerOrOutlet(outletSelector.value, customerSelector.value)">
+    Delete
+  </button>
+  <button
+    *ngIf="outletSelector.value && customerSelector.value"
+    [disabled]="!outletSelector.value && !customerSelector.value"
+    mat-stroked-button
+    color="warn"
+    class="delete-button"
+    (click)="this.deleteCustomerOrOutlet(outletSelector.value, customerSelector.value)">
+    Delete Both
+  </button>
+</div>

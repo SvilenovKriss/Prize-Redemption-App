@@ -1,0 +1,50 @@
+<form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
+  <div class="controles-container" [ngClass]="getThemeAccentClass()">
+      <br />
+      <mat-checkbox class="checkbox" color="primary" formControlName="userCheckbox">User</mat-checkbox>
+      <mat-form-field>
+          <mat-select #propertySelector formControlName="userPropertyType" placeholder="Property">
+            <ng-container *ngFor="let userProperty of userProperties">
+              <mat-option value="{{userProperty}}">{{userProperty}}</mat-option>
+            </ng-container>
+          </mat-select>
+        </mat-form-field>
+      <mat-form-field class="full-line">
+        <input formControlName="userPropertyValue" matInput placeholder="{{propertySelector.value}}" />
+        <mat-error *ngIf="service.form.controls['userPropertyValue'].errors?.email">Please enter a valid email.</mat-error>
+      </mat-form-field>
+          <mat-checkbox class="checkbox" color="primary" formControlName="periodCheckbox" >Period</mat-checkbox>
+          <mat-form-field class="half-line">
+              <input #fromDate formControlName="fromDate" matInput [matDatepicker]="picker1" placeholder="From" />
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field class="half-line">
+              <input formControlName="untilDate" [min]="fromDate.value | date:'yyyy-MM-dd'" matInput [matDatepicker]="picker2" placeholder="until" />
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+          <mat-checkbox class="checkbox" color="primary" formControlName="customerCheckbox">Customer</mat-checkbox>
+          <mat-form-field class="form-field">
+              <mat-select #customerSelector formControlName="customerId" placeholder="customer name">
+                <ng-container *ngFor="let customer of customers">
+                  <mat-option value="{{customer.id}}">{{customer.name}}</mat-option>
+                </ng-container>
+              </mat-select>
+            </mat-form-field>
+            <br />
+            <mat-checkbox class="checkbox" color="primary" formControlName="outletCheckbox">Outlet</mat-checkbox>
+            <mat-form-field>
+                <mat-select formControlName="outletId" placeholder="outlet name">
+                  <ng-container *ngFor="let outlet of outlets">
+                    <mat-option *ngIf="outlet.customerId === customerSelector.value" value="{{outlet.id}}">{{outlet.name}}</mat-option>
+                  </ng-container>
+                </mat-select>
+              </mat-form-field>
+
+          <div class="button-row">
+              <button mat-raised-button color="basic" type="submit" [disabled]="service.form.invalid">Submit</button>
+              <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+            </div>
+        </div>
+  </form>

@@ -1,0 +1,36 @@
+table {
+  width: 100%;
+}
+
+.mat-elevation-z8 {
+  box-shadow: none !important;
+}
+
+@media only screen and (max-width: 520px) {
+  .outlet,
+  .barcode,
+  .username {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    font-size: 10px;
+  }
+
+  .status {
+    padding-right: 4px !important;
+    padding-left: 7px !important;
+    font-size: 10px;
+  }
+
+  .status-header {
+    padding-right: 0 !important;
+    text-align: center;
+  }
+
+  .barcode-header {
+    text-align: center;
+  }
+
+  .container-username {
+    padding-left: 1px !important;
+  }
+}

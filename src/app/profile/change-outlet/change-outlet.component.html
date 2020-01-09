@@ -1,0 +1,16 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Current outlet:" value="{{this.myOutletName}}" [disabled]="true" />
+  </mat-form-field>
+  <p>Change to:</p>
+  <div>
+    <mat-form-field>
+      <mat-label>Select outlet</mat-label>
+      <mat-select #outlet>
+        <mat-option *ngFor="let outlet of outlets" [value]="outlet.name">{{outlet.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <button [disabled]="!outlet.value" class="outlet-button" mat-stroked-button color="warn"
+    (click)="this.saveOutlet(outlet.value)">Save</button>
+</form>

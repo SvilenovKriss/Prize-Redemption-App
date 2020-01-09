@@ -1,0 +1,38 @@
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="All Records">
+    <ng-template matTabContent>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <chart *ngIf="data1" [type]="type" [data]="data1" [options]="options" class="chartStyle"></chart>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Redeemed Records">
+    <ng-template matTabContent>
+      <mat-accordion class="example-headers-align">
+        <mat-expansion-panel [expanded]="true">
+          <chart *ngIf="data2" [type]="type" [data]="data2" [options]="options" class="chartStyle"></chart>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Declined Records">
+    <ng-template matTabContent>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <chart *ngIf="data3" [type]="type" [data]="data3" [options]="options" class="chartStyle"></chart>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Canceled Records">
+    <ng-template matTabContent>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <chart *ngIf="data4" [type]="type" [data]="data4" [options]="options" class="chartStyle"></chart>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

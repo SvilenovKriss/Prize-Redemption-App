@@ -1,0 +1,84 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~ngx-toastr/toastr';
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-white: #fff;
+  --color-red: #e61a27;
+  --color-darker-red: #b00000;
+  --color-grey: #8f9cb5;
+  --color-black-form-field:#212529;
+  --color-black: #000000;
+  --color-pink: #ffc0cb;
+}
+
+.btn-dialog-close {
+  width: 45px;
+  min-width: 0px !important;
+  height: 40px;
+  padding: 0px !important;
+}
+
+.confirm-dialog-container .mat-dialog-container {
+  padding: 0px;
+  border-radius: .25em .25em .4em .4em;
+}
+
+.confirm-dialog-container .content-container {
+  display: flex;
+  margin: 5px 5px 5px 5px;
+  color: var(--color-grey);
+}
+
+.confirm-dialog-container #close-icon {
+  order: 2;
+  margin-left: auto;
+  color: var(--color-red);
+  font-weight: bolder;
+}
+
+.confirm-dialog-container #close-icon:hover {
+  cursor: pointer;
+}
+
+.confirm-dialog-container #no-button {
+  height: 50px;
+  width: 49.8%;
+  color: var(--color-white);
+  background-color: var(--color-red);
+  border-radius: 0px;
+}
+
+.confirm-dialog-container #yes-button {
+  height: 50px;
+  width: 49.8%;
+  margin-left: 0.4%;
+  color: var(--color-white);
+  background-color: var(--color-red);
+  border-radius: 0px;
+}
+
+.confirm-dialog-container span.content-span {
+  padding: 35px 16px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.mat-checkbox-layout {
+  margin-bottom: 0;
+}
+
+.mat-icon-button:focus,
+.auth-list-item:focus,
+.ngb-tab:focus *,
+.ng-template:focus {
+  outline: none;
+}

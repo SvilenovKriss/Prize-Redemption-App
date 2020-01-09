@@ -1,0 +1,11 @@
+table {
+  width: 100%;
+}
+
+.redeemedRecord {
+  background-color: rgb(36, 253, 72);
+}
+
+.declinedRecord {
+  background-color: rgb(253, 36, 36);
+}

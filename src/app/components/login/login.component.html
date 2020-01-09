@@ -1,0 +1,16 @@
+<div class="auth-centered">
+    <form name="loginForm" #loginForm="ngForm" (ngSubmit)="triggerLogin(email.value, password.value)" class="center">
+        <mat-form-field>
+            <input name="emailInput" #email="ngModel" matInput ngModel required email placeholder="Email" type="email" />
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+            <input name="passInput" #password matInput ngModel required placeholder="Password" type="password" />
+        </mat-form-field>
+        <br />
+        <button mat-raised-button color="primary" [disabled]="loginForm.invalid" type="submit">Login</button>
+        <div *ngIf="email.dirty && email.invalid && !!email.control.errors" class="invalid-input">
+          Please input a valid email.
+        </div>
+    </form>
+</div>

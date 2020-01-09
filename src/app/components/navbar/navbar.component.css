@@ -1,0 +1,105 @@
+.fill-space {
+  flex: 1 1 auto;
+}
+
+img.expand {
+  width: 7em;
+  padding: 15px
+}
+
+.auth-username {
+  margin-right: 20px;
+}
+
+button {
+  margin: 2px;
+}
+
+.btn {
+  background-color: #fff;
+  border: #E41E2B;
+  color: #E41E2B;
+  opacity: 0.9;
+}
+
+.material-design-hamburger button {
+  display: block;
+  border: none;
+  background: none;
+  outline: 0;
+}
+
+.material-design-hamburger__icon {
+  padding: 3rem 1rem;
+  cursor: pointer;
+}
+
+.material-design-hamburger__layer {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 5px;
+  background: #eee;
+  animation-duration: 300ms;
+  animation-timing-function: ease-in-out;
+}
+
+.material-design-hamburger__layer:before,
+.material-design-hamburger__layer:after {
+  position: absolute;
+  left: 0;
+  display: block;
+  width: inherit;
+  height: 5px;
+  background: inherit;
+  content: '';
+  animation-duration: 300ms;
+  animation-timing-function: ease-in-out;
+}
+
+.material-design-hamburger__layer:before {
+  bottom: 200%;
+}
+
+.material-design-hamburger__layer:after {
+  top: 200%;
+}
+
+.material-design-hamburger__icon--to-arrow {
+  animation-name: material-design-hamburger__icon--slide;
+  animation-fill-mode: forwards;
+}
+
+.material-design-hamburger__icon--to-arrow:before {
+  animation-name: material-design-hamburger__icon--slide-before;
+  animation-fill-mode: forwards;
+}
+
+.material-design-hamburger__icon--to-arrow:after {
+  animation-name: material-design-hamburger__icon--slide-after;
+  animation-fill-mode: forwards;
+}
+
+.material-design-hamburger__icon--from-arrow {
+  animation-name: material-design-hamburger__icon--slide-from;
+}
+
+.material-design-hamburger__icon--from-arrow:before {
+  animation-name: material-design-hamburger__icon--slide-before-from;
+}
+
+.material-design-hamburger__icon--from-arrow:after {
+  animation-name: material-design-hamburger__icon--slide-after-from;
+}
+
+.logo {
+  max-width: 100%;
+  max-height: 100%;
+  padding: 15px;
+}
+
+@media only screen and (max-width: 420px) {
+  .material-design-hamburger__icon { padding: 0; }
+
+  .expand.coca-cola-image { width: 5em; }
+}

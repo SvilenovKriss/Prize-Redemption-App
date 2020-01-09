@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+  <ng-template [ngIf]="loggedIn">
+    <section class="material-design-hamburger">
+      <button class="material-design-hamburger__icon" (click)="this.toggleSidebar()">
+        <span class="material-design-hamburger__layer"></span>
+      </button>
+    </section>
+  </ng-template>
+  <img src="../../../assets/img/Coca-Cola_logo.png" class="expand coca-cola-image" alt="coca-cola-logo" />
+  <span class="fill-space"></span>
+  <button mat-icon-button color="accent" (click)="toggleTheme()">
+    <mat-icon>format_paint</mat-icon>
+  </button>
+  <button mat-icon-button color="accent" [routerLink]="['/help-desk']">
+    <mat-icon>help</mat-icon>
+  </button>
+  <ng-template [ngIf]="!loggedIn">
+    <button mat-raised-button color="accent" routerLink="/login">Login</button>
+  </ng-template>
+  <ng-template [ngIf]="loggedIn">
+    <button mat-raised-button color="accent" (click)="triggerLogout()">Logout</button>
+  </ng-template>
+</mat-toolbar>
